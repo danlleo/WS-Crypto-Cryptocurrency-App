@@ -1,0 +1,36 @@
+:root {
+  --main-white-color: hsla(0, 0%, 100%, 0.87);
+  --accent-color: rgb(88, 204, 140);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: #1d1d20;
+}
+
+a,
+h1,
+h2,
+h3 {
+  color: var(--main-white-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+.page-container {
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 0px 25px;
+}
+
+.heading {
+  font-weight: 400;
+}
