@@ -1,6 +1,38 @@
 .globalstats-container {
-  margin: 2rem 0;
+  margin-top: 4rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.globalstats-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.globalstats-item_icon {
+  margin-bottom: 20px;
+}
+
+.globalstats-item_data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.globalstats-item_data h2 {
+  margin-bottom: 10px;
+}
+
+.globalstats-item_data p {
+  color: var(--main-muted-color);
+}
+
+.icon-global {
+  color: var(--main-white-color);
+  font-size: 82px;
 }

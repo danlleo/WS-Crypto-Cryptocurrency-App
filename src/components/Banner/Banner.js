@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 import "./Banner.css";
 
-export default function Banner() {
+export default function Banner({ showBtn }) {
   return (
     <div className="banner">
       <h1>WS Crypto</h1>
-      <p>A Cryptocurrencie Web Application</p>
-      <Link to="/watchlist">Watchlist</Link>
+      <p>A Crypto Currency Web Application</p>
+      {showBtn && <Link to="/watchlist">Watchlist</Link>}
     </div>
   );
 }

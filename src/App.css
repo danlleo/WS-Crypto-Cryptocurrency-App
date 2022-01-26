@@ -1,5 +1,6 @@
 :root {
   --main-white-color: hsla(0, 0%, 100%, 0.87);
+  --main-muted-color: rgba(245, 245, 245, 0.6);
   --accent-color: rgb(88, 204, 140);
 }
 
@@ -15,6 +16,7 @@ body {
 }
 
 a,
+p,
 h1,
 h2,
 h3 {
@@ -33,4 +35,21 @@ a {
 
 .heading {
   font-weight: 400;
+}
+
+.btn-more {
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid var(--accent-color);
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0);
+  color: var(--accent-color);
+  transition: 0.2s ease;
+}
+
+.btn-more:hover {
+  color: black;
+  border: 1px solid var(--accent-color);
+  background: var(--accent-color);
 }

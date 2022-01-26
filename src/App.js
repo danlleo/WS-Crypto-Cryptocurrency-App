@@ -7,6 +7,7 @@ import {
   Exchangespage,
   Newspage,
   Watchlistpage,
+  Cryptopage,
 } from "./pages";
 
 import "./App.css";
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/crypto/:id" element={<Cryptopage />} />
         <Route path="/cryptocurrencies" element={<Currenciespage />} />
         <Route path="/exchanges" element={<Exchangespage />} />
         <Route path="/news" element={<Newspage />} />

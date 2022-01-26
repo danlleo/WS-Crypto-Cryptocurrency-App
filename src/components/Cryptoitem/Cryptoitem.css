@@ -1,0 +1,40 @@
+.cryptoitem {
+  display: flex;
+  flex-direction: column;
+  background: #2a2a2a;
+  border-radius: 5px;
+  padding: 20px 15px;
+  transition: 0.2s ease;
+}
+
+.cryptoitem:hover {
+  box-shadow: var(--accent-color) 0px 0px 0px 3px;
+  transform: scale(1.05);
+}
+
+.cryptoitem-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cryptoitem-header img {
+  width: 30px;
+  height: 30px;
+}
+
+.cryptoitem-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cryptoitem-body p {
+  padding: 5px 0px;
+}
+
+.cryptoitem-body span {
+  color: var(--main-muted-color);
+}
