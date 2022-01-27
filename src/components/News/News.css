@@ -17,10 +17,5 @@
 
 .news-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px 20px;
-  grid-template-areas:
-    ". . . "
-    ". . . ";
+  gap: 20px;
 }

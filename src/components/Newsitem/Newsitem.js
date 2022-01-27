@@ -6,7 +6,14 @@ import "./Newsitem.css";
 const demoImage =
   "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
-export default function Newsitem({ name, description, url, image, date }) {
+export default function Newsitem({
+  name,
+  description,
+  url,
+  image,
+  date,
+  simplified,
+}) {
   return (
     <a href={url} target="_blank" rel="noreferrer">
       <div className="newsitem">

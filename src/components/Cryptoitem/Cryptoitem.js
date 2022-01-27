@@ -4,10 +4,34 @@ import { Link } from "react-router-dom";
 
 import "./Cryptoitem.css";
 
-export default function Cryptoitem({ name, iconUrl, price, cap, change, id }) {
+export default function Cryptoitem({
+  name,
+  iconUrl,
+  price,
+  cap,
+  change,
+  id,
+  simplified,
+}) {
+  const addToLocalStorage = () => {
+    localStorage.setItem(
+      "watchlist",
+      JSON.stringify({
+        name,
+        iconUrl,
+        price,
+        cap,
+        change,
+        id,
+      })
+    );
+
+    console.log("Successfully added to local storage!");
+  };
+
   return (
-    <Link to={`/crypto/${id}`}>
-      <div className="cryptoitem">
+    <div className="cryptoitem">
+      <Link to={`/crypto/${id}`}>
         <div className="cryptoitem-header">
           <h2>{name}</h2>
           <img src={iconUrl} alt={name} />
@@ -23,7 +47,12 @@ export default function Cryptoitem({ name, iconUrl, price, cap, change, id }) {
             Daily Change: <span>{millify(change)}</span>{" "}
           </p>
         </div>
-      </div>
-    </Link>
+      </Link>
+      {!simplified && (
+        <button className="btn-watchlist" onClick={addToLocalStorage}>
+          Add to watchlist
+        </button>
+      )}
+    </div>
   );
 }

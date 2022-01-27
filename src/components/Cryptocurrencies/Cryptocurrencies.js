@@ -59,6 +59,7 @@ export default function Cryptocurrencies({ simplified }) {
               change={coin.change}
               id={coin.uuid}
               key={coin.uuid}
+              simplified={simplified}
             />
           ))
         ) : (

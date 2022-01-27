@@ -38,3 +38,18 @@
 .cryptoitem-body span {
   color: var(--main-muted-color);
 }
+
+.btn-watchlist {
+  border: none;
+  margin-top: 10px;
+  padding: 5px 0px;
+  border-radius: 5px;
+  background: #5a5a5a;
+  color: var(--main-muted-color);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-watchlist:hover {
+  background: #494949;
+}
