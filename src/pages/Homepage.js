@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../components/Footer/Footer";
 import Banner from "../components/Banner/Banner";
 import GlobalStats from "../components/GlobalStats/GlobalStats";
 import Cryptocurrencies from "../components/Cryptocurrencies/Cryptocurrencies";
@@ -14,7 +13,6 @@ export default function Homepage() {
         <Cryptocurrencies simplified={true} />
         <News simplified={true} />
       </div>
-      <Footer />
     </>
   );
 }

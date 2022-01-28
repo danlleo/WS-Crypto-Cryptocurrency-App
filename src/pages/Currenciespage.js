@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../components/Footer/Footer";
 import Banner from "../components/Banner/Banner";
 import Cryptocurrencies from "../components/Cryptocurrencies/Cryptocurrencies";
 
@@ -10,7 +9,6 @@ export default function Currenciespage() {
       <div className="page-container">
         <Cryptocurrencies simplified={false} />
       </div>
-      <Footer />
     </>
   );
 }

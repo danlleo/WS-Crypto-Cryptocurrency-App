@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import {
   Homepage,
@@ -24,6 +25,7 @@ function App() {
         <Route path="/news" element={<Newspage />} />
         <Route path="/watchlist" element={<Watchlistpage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

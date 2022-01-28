@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
 
@@ -13,21 +13,36 @@ export default function Cryptoitem({
   id,
   simplified,
 }) {
-  const addToLocalStorage = () => {
-    localStorage.setItem(
-      "watchlist",
-      JSON.stringify({
-        name,
-        iconUrl,
-        price,
-        cap,
-        change,
-        id,
-      })
-    );
+  const [exist, setExist] = useState(false);
 
-    console.log("Successfully added to local storage!");
+  const handleStorage = () => {
+    if (!exist) {
+      localStorage.setItem(
+        name,
+        JSON.stringify({
+          name,
+          iconUrl,
+          price,
+          cap,
+          change,
+          id,
+        })
+      );
+      setExist(true);
+      return;
+    }
+
+    localStorage.removeItem(name);
+    setExist(false);
   };
+
+  const doesExist = (coinName) => {
+    setExist(localStorage.getItem(coinName) ? true : false);
+  };
+
+  useEffect(() => {
+    doesExist(name);
+  }, []);
 
   return (
     <div className="cryptoitem">
@@ -49,9 +64,26 @@ export default function Cryptoitem({
         </div>
       </Link>
       {!simplified && (
-        <button className="btn-watchlist" onClick={addToLocalStorage}>
-          Add to watchlist
-        </button>
+        <>
+          {exist ? (
+            <button
+              className="btn-watchlist"
+              style={{
+                backgroundColor: "var(--accent-color)",
+                color: "var(--main-white-color)",
+                fontWeight: "bold",
+                letterSpacing: ".5px",
+              }}
+              onClick={handleStorage}
+            >
+              Remove from watchlist
+            </button>
+          ) : (
+            <button className="btn-watchlist" onClick={handleStorage}>
+              Add to wathlist
+            </button>
+          )}
+        </>
       )}
     </div>
   );
