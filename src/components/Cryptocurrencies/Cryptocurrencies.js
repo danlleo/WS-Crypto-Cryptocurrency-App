@@ -49,7 +49,7 @@ export default function Cryptocurrencies({ simplified }) {
       </div>
 
       <div className="cryptocurrencies-container">
-        {cryptos?.length >= 1 ? (
+        {cryptos?.length ? (
           cryptos?.map((coin) => (
             <Cryptoitem
               name={coin.name}

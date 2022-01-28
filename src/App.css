@@ -15,9 +15,9 @@ body {
   background: #1d1d20;
 }
 
-.App {
-  min-height: 100vh;
-  position: relative;
+html,
+body {
+  height: 100%;
 }
 
 a,
