@@ -19,7 +19,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/crypto/:id" element={<Cryptopage />} />
+        <Route path="/crypto/:coinId" element={<Cryptopage />} />
         <Route path="/cryptocurrencies" element={<Currenciespage />} />
         <Route path="/exchanges" element={<Exchangespage />} />
         <Route path="/news" element={<Newspage />} />
