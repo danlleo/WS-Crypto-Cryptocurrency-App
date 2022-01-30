@@ -14,18 +14,16 @@ import { CheckCircleOutlined } from "@ant-design/icons/lib/icons";
 
 export default function Cryptopage() {
   const { coinId } = useParams();
-  // const { data: coinSupply } = useGetSupplyDataQuery(coinId);
+  const { data: coinSupply } = useGetSupplyDataQuery(coinId);
   const { data: coinHistory } = useGetCryptosHistoryQuery(coinId);
   const { data, isFetching } = useGetCoinDataQuery(coinId);
-
-  const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
   if (isFetching) return "Loading...";
 
   return (
     <>
       <Banner />
-      <div className="page-container">
+      <div className="page-container" onClick={() => console.log(coinSupply)}>
         <div className="cryptopage-header">
           <div className="cryptopage-header_container">
             <div
@@ -68,23 +66,33 @@ export default function Cryptopage() {
             <div className="supply-items-container">
               <div className="supply-item">
                 <p>Max Amount</p>
-                <p className="bold-item">Data</p>
+                <p className="bold-item">
+                  {coinSupply?.data?.supply?.maxAmount}
+                </p>
               </div>
               <div className="supply-item">
                 <p>Total Synced At</p>
-                <p className="bold-item">Data</p>
+                <p className="bold-item">
+                  {coinSupply?.data?.supply?.totalSyncedAt}
+                </p>
               </div>
               <div className="supply-item">
                 <p>Total Amount</p>
-                <p className="bold-item">Data</p>
+                <p className="bold-item">
+                  {coinSupply?.data?.supply?.totalAmount}
+                </p>
               </div>
               <div className="supply-item">
                 <p>Circulating Synced At</p>
-                <p className="bold-item">Data</p>
+                <p className="bold-item">
+                  {coinSupply?.data?.supply?.circulatingSyncedAt}
+                </p>
               </div>
               <div className="supply-item">
                 <p>Circulating Amount</p>
-                <p className="bold-item">Data</p>
+                <p className="bold-item">
+                  {coinSupply?.data?.supply?.circulatingAmount}
+                </p>
               </div>
             </div>
           </div>

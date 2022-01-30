@@ -15,9 +15,6 @@ export default function Header() {
             <Link to="/cryptocurrencies">Cryptocurrencies</Link>
           </li>
           <li>
-            <Link to="/exchanges">Exchanges</Link>
-          </li>
-          <li>
             <Link to="/news">News</Link>
           </li>
           <li>
