@@ -27,8 +27,6 @@ export default function Chart({ coinHistory }) {
   const coinPrice = [];
   const coinTimestamp = [];
 
-  console.log(moment(1643401500));
-
   for (let i = 0; i < coinHistory?.data?.history?.length; i++) {
     coinPrice.push(coinHistory?.data?.history[i].price);
     coinTimestamp.push(
