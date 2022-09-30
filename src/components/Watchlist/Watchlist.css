@@ -1,42 +1,36 @@
 .watchlist {
-    display: flex;
-    flex-direction: column;
-    margin-top: 4rem;
-  }
-  
-  .watchlist-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .watchlist-header h1 {
-    margin-bottom: 15px;
-    color: var(--accent-color);
-  }
-  
-  .watchlist-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px 20px;
-    grid-template-areas:
-      ". . . ."
-      ". . . ."
-      ". . . .";
-  }
-  
-  .input-container {
-    margin-bottom: 15px;
-  }
-  
-  .input-container input {
-    padding: 8px 0px 8px 10px;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    width: 250px;
-    background: #5a5a5a;
-    color: var(--main-white-color);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.watchlist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.watchlist-header h1 {
+  margin-bottom: 15px;
+  color: var(--accent-color);
+}
+
+.watchlist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem 2rem;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-container input {
+  padding: 8px 0px 8px 10px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  width: 250px;
+  background: #5a5a5a;
+  color: var(--main-white-color);
+}
