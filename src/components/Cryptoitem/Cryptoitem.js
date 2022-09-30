@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import millify from "millify";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import millify from 'millify'
+import { Link } from 'react-router-dom'
 
-import "./Cryptoitem.css";
+import './Cryptoitem.css'
 
 export default function Cryptoitem({
   name,
@@ -13,7 +13,7 @@ export default function Cryptoitem({
   id,
   simplified,
 }) {
-  const [exist, setExist] = useState(false);
+  const [exist, setExist] = useState(false)
 
   const handleStorage = () => {
     if (!exist) {
@@ -27,39 +27,39 @@ export default function Cryptoitem({
           change,
           id,
         })
-      );
-      setExist(true);
-      return;
+      )
+      setExist(true)
+      return
     }
 
-    localStorage.removeItem(name);
-    setExist(false);
-  };
+    localStorage.removeItem(name)
+    setExist(false)
+  }
 
   const doesExist = (coinName) => {
-    setExist(localStorage.getItem(coinName) ? true : false);
-  };
+    setExist(localStorage.getItem(coinName) ? true : false)
+  }
 
   useEffect(() => {
-    doesExist(name);
-  }, []);
+    doesExist(name)
+  }, [])
 
   return (
-    <div className="cryptoitem">
+    <div className='cryptoitem'>
       <Link to={`/crypto/${id}`}>
-        <div className="cryptoitem-header">
+        <div className='cryptoitem-header'>
           <h2>{name}</h2>
           <img src={iconUrl} alt={name} />
         </div>
-        <div className="cryptoitem-body">
+        <div className='cryptoitem-body'>
           <p>
-            Price: <span>{millify(price)}</span>{" "}
+            Price: <span>{millify(price)}</span>{' '}
           </p>
           <p>
-            Market Cap: <span>{millify(cap)}</span>{" "}
+            Market Cap: <span>{millify(cap)}</span>{' '}
           </p>
           <p>
-            Daily Change: <span>{millify(change)}</span>{" "}
+            Daily Change: <span>{millify(change)}</span>{' '}
           </p>
         </div>
       </Link>
@@ -67,24 +67,24 @@ export default function Cryptoitem({
         <>
           {exist ? (
             <button
-              className="btn-watchlist"
+              className='btn-watchlist'
               style={{
-                backgroundColor: "var(--accent-color)",
-                color: "var(--main-white-color)",
-                fontWeight: "bold",
-                letterSpacing: ".5px",
+                backgroundColor: 'var(--accent-color)',
+                color: 'var(--main-white-color)',
+                fontWeight: 'bold',
+                letterSpacing: '.5px',
               }}
               onClick={handleStorage}
             >
               Remove from watchlist
             </button>
           ) : (
-            <button className="btn-watchlist" onClick={handleStorage}>
+            <button className='btn-watchlist' onClick={handleStorage}>
               Add to wathlist
             </button>
           )}
         </>
       )}
     </div>
-  );
+  )
 }

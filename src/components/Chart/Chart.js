@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,10 +8,10 @@ import {
   Title,
   Tooltip,
   Legend,
-} from "chart.js";
-import moment from "moment";
-import { Line } from "react-chartjs-2";
-import "./Chart.css";
+} from 'chart.js'
+import moment from 'moment'
+import { Line } from 'react-chartjs-2'
+import './Chart.css'
 
 ChartJS.register(
   CategoryScale,
@@ -21,44 +21,44 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend
-);
+)
 
 export default function Chart({ coinHistory }) {
-  const coinPrice = [];
-  const coinTimestamp = [];
+  const coinPrice = []
+  const coinTimestamp = []
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i++) {
-    coinPrice.push(coinHistory?.data?.history[i].price);
+    coinPrice.push(coinHistory?.data?.history[i].price)
     coinTimestamp.push(
-      moment(coinHistory?.data?.history[i].timestamp).startOf("ss").fromNow()
-    );
+      moment(coinHistory?.data?.history[i].timestamp).startOf('ss').fromNow()
+    )
   }
 
   const data = {
     labels: coinTimestamp,
     datasets: [
       {
-        label: "Price in USD",
+        label: 'Price in USD',
         fill: false,
-        backgroundColor: "rgb(88, 204, 140)",
-        borderColor: "rgb(88, 204, 140)",
+        backgroundColor: 'rgb(88, 204, 140)',
+        borderColor: 'rgb(88, 204, 140)',
         data: coinPrice,
       },
     ],
-  };
+  }
 
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: "top",
+        position: 'top',
       },
     },
-  };
+  }
 
   return (
-    <div className="chart">
+    <div className='chart'>
       <Line data={data} options={options} />
     </div>
-  );
+  )
 }

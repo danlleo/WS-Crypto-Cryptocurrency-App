@@ -1,27 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import "./Header.css";
+import './Header.css'
 
 export default function Header() {
   return (
     <header>
-      <div className="header-content">
+      <div className='header-content'>
         <h1>
-          <Link to="/">WS Crypto</Link>
+          <Link to='/'>WS Crypto</Link>
         </h1>
         <ul>
           <li>
-            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+            <Link to='/cryptocurrencies'>Cryptocurrencies</Link>
           </li>
           <li>
-            <Link to="/news">News</Link>
+            <Link to='/news'>News</Link>
           </li>
           <li>
-            <Link to="/watchlist">Watchlist</Link>
+            <Link to='/watchlist'>Watchlist</Link>
           </li>
         </ul>
       </div>
     </header>
-  );
+  )
 }

@@ -17,13 +17,8 @@
 
 .cryptocurrencies-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 20px 20px;
-  grid-template-areas:
-    ". . . ."
-    ". . . ."
-    ". . . .";
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem 2rem;
 }
 
 .input-container {
