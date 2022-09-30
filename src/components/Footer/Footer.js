@@ -5,7 +5,9 @@ export default function Footer() {
   return (
     <footer>
       <div className='footer-content'>
-        <p>Made With ❤️ By WinterSalt.</p>
+        <p>
+          Powered by <strong>WinterSalt</strong>
+        </p>
       </div>
     </footer>
   )
