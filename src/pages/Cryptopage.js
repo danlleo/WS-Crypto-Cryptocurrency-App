@@ -1,9 +1,9 @@
 import React from 'react'
 import Banner from '../components/Banner/Banner'
 import Chart from '../components/Chart/Chart'
+import millify from 'millify'
 import HTMLReactParser from 'html-react-parser'
 import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import { CheckCircleOutlined } from '@ant-design/icons/lib/icons'
 import {
   useGetCoinDataQuery,
@@ -13,16 +13,10 @@ import {
 import './styles/Cryptopage.css'
 
 export default function Cryptopage() {
-  const [parserData, setParserData] = useState('')
-
   const { coinId } = useParams()
   const { data: coinSupply } = useGetSupplyDataQuery(coinId)
   const { data: coinHistory } = useGetCryptosHistoryQuery(coinId)
-  const { data, isLoading } = useGetCoinDataQuery(coinId)
-
-  useEffect(() => {
-    setParserData(data?.data?.coin?.description)
-  })
+  const { data: coinData, isLoading } = useGetCoinDataQuery(coinId)
 
   return (
     <>
@@ -41,11 +35,12 @@ export default function Cryptopage() {
                 }}
               >
                 <img
-                  src={data?.data?.coin?.iconUrl}
-                  alt={data?.data?.coin?.name}
+                  src={coinData?.data?.coin?.iconUrl}
+                  alt={coinData?.data?.coin?.name}
                 />
                 <h1>
-                  {data?.data?.coin?.name} ({data?.data?.coin?.symbol}) price
+                  {coinData?.data?.coin?.name} ({coinData?.data?.coin?.symbol})
+                  price
                 </h1>
               </div>
               <div>
@@ -53,7 +48,7 @@ export default function Cryptopage() {
                   Coin Rank:
                   <span style={{ color: 'var(--main-muted-color)' }}>
                     {' '}
-                    {data?.data?.coin?.rank}
+                    {coinData?.data?.coin?.rank}
                   </span>
                 </h3>
               </div>
@@ -62,8 +57,8 @@ export default function Cryptopage() {
           <Chart coinHistory={coinHistory} />
           <div className='cryptopage-body'>
             <div className='cryptopage-body_description'>
-              <h2>What is {data?.data?.coin?.name}</h2>
-              {HTMLReactParser(parserData)}
+              <h2>What is {coinData?.data?.coin?.name}</h2>
+              {HTMLReactParser(coinData?.data?.coin?.description || '')}
             </div>
             <div className='cryptopage-body_supply'>
               <div className='cryptopage-body_supply-header'>
@@ -74,31 +69,33 @@ export default function Cryptopage() {
                 <div className='supply-item'>
                   <p>Max Amount</p>
                   <p className='bold-item'>
-                    {coinSupply?.data?.supply?.maxAmount}
+                    {millify(coinSupply?.data?.supply?.maxAmount || 0)}
                   </p>
                 </div>
                 <div className='supply-item'>
                   <p>Total Synced At</p>
                   <p className='bold-item'>
-                    {coinSupply?.data?.supply?.totalSyncedAt}
+                    {millify(coinSupply?.data?.supply?.totalSyncedAt || 0)}
                   </p>
                 </div>
                 <div className='supply-item'>
                   <p>Total Amount</p>
                   <p className='bold-item'>
-                    {coinSupply?.data?.supply?.totalAmount}
+                    {millify(coinSupply?.data?.supply?.totalAmount || 0)}
                   </p>
                 </div>
                 <div className='supply-item'>
                   <p>Circulating Synced At</p>
                   <p className='bold-item'>
-                    {coinSupply?.data?.supply?.circulatingSyncedAt}
+                    {millify(
+                      coinSupply?.data?.supply?.circulatingSyncedAt || 0
+                    )}
                   </p>
                 </div>
                 <div className='supply-item'>
                   <p>Circulating Amount</p>
                   <p className='bold-item'>
-                    {coinSupply?.data?.supply?.circulatingAmount}
+                    {millify(coinSupply?.data?.supply?.circulatingAmount || 0)}
                   </p>
                 </div>
               </div>
